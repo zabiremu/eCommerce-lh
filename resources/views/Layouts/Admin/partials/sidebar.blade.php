@@ -76,11 +76,11 @@
                             </li>
 
                             <li>
-                                <a href="ecommerce-dashboard.html">Sub Category</a>
+                                <a href="{{ route('admin.subCategory.index') }}">Sub Category</a>
                             </li>
 
                             <li>
-                                <a href="ecommerce-dashboard.html">Child Category</a>
+                                <a href="{{ route('admin.childCategory.index') }}">Child Category</a>
                             </li>
 
                         </ul>
