@@ -15,8 +15,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Category Controller
     Route::controller(CategoryController::class)->prefix('/category')->name('category.')->group(function () {
         Route::get('/index', 'index')->name('index');
-        Route::post('/', 'store')->name('store');
-        Route::put('/', 'update')->name('update');
-        Route::get('/', 'destroy')->name('destroy');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::put('/update/{id}', 'update')->name('update');
+        Route::get('/destroy{id}', 'destroy')->name('destroy');
     });
 });
