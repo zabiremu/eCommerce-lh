@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $data = DB::table('categories')->get();
+        $data = DB::table('categories')->latest()->get();
         $info = new stdClass();
         $info->page_title = 'Create Category';
         $info->all_data = 'All Categories';

@@ -36,11 +36,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="category_slug" class="form-label">Category Slug</label>
-                            <input type="text" id="category_name"
+                            <input type="text"
                                 class="form-control @error('category_slug')
                                         is-invalid
                                         @enderror"
-                                placeholder="Category Slug" name="category_slug">
+                                placeholder="Category Slug" name="category_slug" id="category_slug">
                             @error('category_slug')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -48,9 +48,9 @@
                         <div class="mb-3">
 
                             <div class="form-check form-switch">
-                                <input type="checkbox" class="form-check-input d-none" name="status" checked value="0">
-                                <input type="checkbox" class="form-check-input" name="status"
-                                    value="1">
+                                <input type="checkbox" class="form-check-input d-none" name="status" checked
+                                    value="0">
+                                <input type="checkbox" class="form-check-input" name="status" value="1">
                                 <label class="form-check-label" for="">Status</label>
                             </div>
                         </div>
@@ -76,9 +76,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $key=> $item)
+                            @foreach ($data as $key => $item)
                                 <tr>
-                                    <td>{{$key+1}}</td>
+                                    <td>{{ $key + 1 }}</td>
                                     <td>{{ $item->category_name }}</td>
                                     <td>{{ $item->category_slug }}</td>
                                     <td>
@@ -112,5 +112,13 @@
         <script src="{{ asset('admin/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
         <script src="{{ asset('admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
         <script src="{{ asset('admin/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
+
+        <script>
+            $('#category_name').on('keyup', function() {
+                categoryName = $(this).val();
+                slug = categoryName.trim().toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-');
+                $('#category_slug').val(slug);
+            })
+        </script>
     @endpush
 @endsection
