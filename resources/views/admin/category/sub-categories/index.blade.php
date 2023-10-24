@@ -43,7 +43,9 @@
                                 @enderror">
                                 <option selected disabled>Select Category</option>
                                 @foreach ($categories as $category)
-                                <option value="{{$category->id}}" @if(isset( $row->category_id)) {{$category->id === $row->category_id ? 'selected' : ''}} @endif>{{$category->title}}</option>
+                                    <option value="{{ $category->id }}"
+                                        @if (isset($row->category_id)) {{ $category->id === $row->category_id ? 'selected' : '' }} @endif>
+                                        {{ $category->title }}</option>
                                 @endforeach
                             </select>
                             @error('title')
@@ -130,9 +132,14 @@
                                     </td>
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">{{ $data->links() }}</li>
+                        </ul>
+                    </nav>
 
                 </div> <!-- end card body-->
             </div> <!-- end card -->
@@ -140,15 +147,6 @@
         <!-- end row-->
     </div>
     @push('customJs')
-        <!-- Datatable js-->
-        <script src="{{ asset('admin/assets/js/pages/datatables.init.js') }}"></script>
-
-        <!-- datatable js start -->
-        <script src="{{ asset('admin/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-        <script src="{{ asset('admin/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
-
         <script>
             $('#title').on('keyup', function() {
                 categoryName = $(this).val();

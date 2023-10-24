@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Brand\BrandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Category\CategoryController;
@@ -38,4 +39,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::put('/update/{id}', 'update')->name('update');
         Route::get('/destroy{id}', 'destroy')->name('destroy');
     });
+
+    Route::resource('/brand', BrandController::class);
 });

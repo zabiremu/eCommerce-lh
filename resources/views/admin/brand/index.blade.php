@@ -36,7 +36,7 @@
                             @method('PUT')
                         @endif
                         <div class="mb-3">
-                            <label for="title" class="form-label">Category title</label>
+                            <label for="title" class="form-label">Brand title</label>
                             <input type="text" id="title"
                                 class="form-control @error('title')
                                         is-invalid
@@ -48,7 +48,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="slug" class="form-label">Category Slug</label>
+                            <label for="slug" class="form-label">Brand Slug</label>
                             <input type="text"
                                 class="form-control @error('slug')
                                         is-invalid
